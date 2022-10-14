@@ -70,4 +70,9 @@ class HomeController extends Controller
         return redirect()->back()->with('message','Appointment Request Successfull, We will contact you soon');
 
     }
+
+    public function myappointment()
+    {
+        return view('user.my_appointment');
+    }
 }
