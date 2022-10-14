@@ -23,15 +23,18 @@
             {{-- @include('admin.body') --}}
             <div class="container-fluid page-body-wrapper" >
 
-                @if (session()->has('message'))
-                    <div class="alert alert-success">
-                        <button type="button" class="close" data-dismiss="alert">
-                            x
-                        </button>
-                        {{session()->get('message')}}
-                    </div>
-                @endif
+
                 <div class="container" align = "center" style="padding: 100px">
+
+                    @if (session()->has('message'))
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert">
+                                x
+                            </button>
+                            {{session()->get('message')}}
+                        </div>
+                    @endif
+                    
                     <form action="{{url('upload_doctor')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div style="padding: 15px">
