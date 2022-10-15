@@ -48,7 +48,7 @@
                                     </td>
 
                                     <td>
-                                        <a class="btn btn-danger" href="">Cancel</a>
+                                        <a class="btn btn-danger" href="{{url('cancelled',$appoint->id)}}">Cancel</a>
                                     </td>
                                 </tr>
                             @endforeach
