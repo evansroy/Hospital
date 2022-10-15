@@ -44,7 +44,7 @@
                                     <td>{{$appoint->status}}</td>
 
                                     <td>
-                                        <a class="btn btn-success" href="">Approve</a>
+                                        <a class="btn btn-success" href="{{url('approved',$appoint->id)}}">Approve</a>
                                     </td>
 
                                     <td>
