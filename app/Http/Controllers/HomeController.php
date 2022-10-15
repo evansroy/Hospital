@@ -73,6 +73,15 @@ class HomeController extends Controller
 
     public function myappointment()
     {
-        return view('user.my_appointment');
+        //Only show the appointments when thw user is logged in
+        if(Auth::id())
+        {
+            return view('user.my_appointment');
+        }
+        else
+        {
+            return redirect()->back();
+        }
+
     }
 }
