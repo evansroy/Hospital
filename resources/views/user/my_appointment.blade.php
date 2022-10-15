@@ -117,7 +117,7 @@
                     <th scope="col">Date</th>
                     <th scope="col">Message</th>
                     <th scope="col">Status</th>
-                    
+                    <th>Cancel Appointment</th>
                 </tr>
             </thead>
             <tbody>
@@ -127,6 +127,7 @@
                         <td>{{$appoints->date}}</td>
                         <td>{{$appoints->message}}</td>
                         <td>{{$appoints->status}}</td>
+                        <td><a href="{{url('cancel_appoint',$appoints->id)}}" class="btn btn-danger">Cancel</a></td>
                     </tr>
                 @endforeach
 
