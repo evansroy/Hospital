@@ -76,7 +76,9 @@ class HomeController extends Controller
         //Only show the appointments when thw user is logged in
         if(Auth::id())
         {
-            return view('user.my_appointment');
+            $userid = Auth::user()->id;
+            $appoint = appointment::where('User_id',$userid)->get();
+            return view('user.my_appointment',compact('appoint'));
         }
         else
         {

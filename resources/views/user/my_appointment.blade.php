@@ -117,15 +117,19 @@
                     <th scope="col">Date</th>
                     <th scope="col">Message</th>
                     <th scope="col">Status</th>
+                    
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                @foreach ($appoint as $appoints)
+                    <tr>
+                        <td>{{$appoints->doctor}}</td>
+                        <td>{{$appoints->date}}</td>
+                        <td>{{$appoints->message}}</td>
+                        <td>{{$appoints->status}}</td>
+                    </tr>
+                @endforeach
+
             </tbody>
 
         </table>
