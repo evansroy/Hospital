@@ -26,7 +26,9 @@
                             <th scope="col">Speciality</th>
                             <th scope="col">Room No</th>
                             <th scope="col">Profile Image</th>
-                            
+                            <th scope="col">Delete</th>
+                            <th scope="col">Update</th>
+
                           </tr>
                         </thead>
                         <tbody>
@@ -38,9 +40,14 @@
                                     <td>{{$doctor->phone}}</td>
                                     <td>{{$doctor->specialty}}</td>
                                     <td>{{$doctor->room}}</td>
-                                    <td>{{$doctor->image}}</td>
+                                    <td> <img src="doctorimage/{{$doctor->image}}" alt="Profile Image"></td>
+                                    <td>
+                                        <a class="btn btn-danger" href="{{url('delete_doctor',$doctor->id)}}" onclick="return confirm('Are you sure you want to Delete This Doctor ?')">Delete</a>
+                                    </td>
 
-
+                                    <td>
+                                        <a class="btn btn-primary" href="{{url('update_doctor',$doctor->id)}}">Update</a>
+                                    </td>
 
                                 </tr>
                             @endforeach
