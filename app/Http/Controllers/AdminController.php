@@ -80,8 +80,36 @@ class AdminController extends Controller
      public function updateDoctor($id)
      {
 
-        $data = doctor::find($id);
+         $data = doctor::find($id);
+
         return view('admin.update_doctor',compact('data'));
+     }
+
+     public function editDoctor(Request $request,$id)
+     {
+        $doctor = doctor::find($id);
+
+        $doctor->name=$request->name;
+        $doctor->phone=$request->phone;
+        $doctor->specialty=$request->specialty;
+        $doctor->email=$request->email;
+        $doctor->room=$request->room;
+
+
+        $image = $request->file;
+
+        if($image)
+        {
+            $imagename = time().'.'.$image->getClientOriginalExtension();
+
+            $request->file->move('doctorimage',$imagename);
+            $doctor->image=$imagename;
+
+        }
+
+        $doctor->save();
+
+        return redirect()->back()->with('message','Doctor Details Updated Successfully');
      }
 
 }
