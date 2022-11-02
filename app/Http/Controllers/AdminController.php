@@ -29,7 +29,7 @@ class AdminController extends Controller
         $doctor->name=$request->name;
         $doctor->phone=$request->phone;
         $doctor->specialty=$request->specialty;
-        // $name = $req->input('name')
+        $doctor->email=$request->email;
         $doctor->room=$request->room;
 
 
@@ -74,13 +74,14 @@ class AdminController extends Controller
      {
         $data = doctor::find($id);
         $data->delete();
-
         return redirect()->back();
-     }
+    }
 
      public function updateDoctor($id)
      {
 
+        $data = doctor::find($id);
+        return view('admin.update_doctor',compact('data'));
      }
 
 }
